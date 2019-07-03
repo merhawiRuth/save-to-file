@@ -4,17 +4,17 @@ var fs = require('fs');
 
 app.use(express.json());
 
-const data = [{ name: 'john', age: '45' }];
-app.get('/data', (req, res, next) => {
-  res.json(data);
-});
+//const data = [{ name: 'john', age: '45' }];
+// app.get('/data', (req, res, next) => {
+//   res.json(data);
+// });
 
 app.post('/data', function(req, res) {
   const newData = req.body;
 
   fs.writeFile('file.txt', JSON.stringify(newData), function(err) {
     if (err) throw err;
-    console.log('Replaced!');
+    console.log('sent to text!');
   });
   res.send(newData);
 });
